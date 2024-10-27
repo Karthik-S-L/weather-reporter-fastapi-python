@@ -1,0 +1,54 @@
+{
+    "info": {
+        "name": "Weather Aggregator API",
+        "_postman_id": "your-postman-id",
+        "description": "Postman collection for testing Weather Aggregator API.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "username",
+                            "value": "your_username",
+                            "description": "Enter your username here"
+                        },
+                        {
+                            "key": "password",
+                            "value": "your_password",
+                            "description": "Enter your password here"
+                        }
+                    ]
+                },
+                "url": "http://127.0.0.1:8000/token"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Weather",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "description": "Replace {{access_token}} with the token received from the Login request"
+                    }
+                ],
+                "url": "http://127.0.0.1:8000/weather/{{city}}"
+            },
+            "response": []
+        }
+    ]
+}
